@@ -17,8 +17,9 @@ export const site = {
     { label: 'Nano Collective', href: 'https://nanocollective.org' },
   ],
   stats: [
+    // Fallback snapshots: useGitHubStats() swaps in the live numbers when it can.
     { value: '10', label: 'public repos' },
-    { value: '5', label: 'tools built' },
+    { value: '437', label: 'total commits' },
     { value: '2', label: 'years on GitHub' },
   ],
 }

@@ -3,12 +3,20 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router'
 
 import { site } from '../../data/site'
+import { useGitHubStats } from '../lib/useGitHubStats'
 import { CitySection } from '../components/city/CitySection'
 import { Magnetic, Parallax } from '../components/motion'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
 export function Home() {
+  const githubStats = useGitHubStats()
+  const liveStats: Record<string, number | null> = {
+    'public repos': githubStats.repos,
+    'total commits': githubStats.commits,
+    'years on GitHub': githubStats.years,
+  }
+
   return (
     <>
       {/* Hero: name and portrait on one line, one block of copy below. */}
@@ -88,12 +96,16 @@ export function Home() {
             transition={{ duration: 1, delay: 0.9 }}
             className="mt-12 grid grid-cols-3 gap-4 border-t border-line pt-6 sm:max-w-2xl sm:gap-8"
           >
-            {site.stats.map((stat) => (
-              <div key={stat.label}>
-                <dt className="mono text-[10.5px] uppercase tracking-[0.14em] text-faint">{stat.label}</dt>
-                <dd className="font-display mt-1.5 text-[34px] leading-none text-fg sm:text-[42px]">{stat.value}</dd>
-              </div>
-            ))}
+            {site.stats.map((stat) => {
+              const live = liveStats[stat.label]
+              const value = typeof live === 'number' ? live.toLocaleString('en-GB') : stat.value
+              return (
+                <div key={stat.label}>
+                  <dt className="mono text-[10.5px] uppercase tracking-[0.14em] text-faint">{stat.label}</dt>
+                  <dd className="font-display mt-1.5 text-[34px] leading-none text-fg sm:text-[42px]">{value}</dd>
+                </div>
+              )
+            })}
           </motion.dl>
         </div>
       </section>
