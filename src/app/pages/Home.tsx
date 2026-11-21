@@ -98,18 +98,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* Stack ticker */}
-      <div className="overflow-hidden border-y border-line py-4" aria-hidden>
-        <ul className="mono flex w-max animate-marquee items-center gap-8 whitespace-nowrap text-[12px] uppercase tracking-[0.16em] text-muted">
-          {[...site.marquee, ...site.marquee].map((item, i) => (
-            <li key={i} className="flex items-center gap-8">
-              {item}
-              <span className="round size-1 rounded-full bg-accent/70" />
-            </li>
-          ))}
-        </ul>
-      </div>
-
       {/* The work, as a city rather than a grid of cards. */}
       <CitySection />
     </>

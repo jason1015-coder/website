@@ -16,16 +16,6 @@ export const site = {
     { label: 'Scriptura docs', href: 'https://docs.nanocollective.org/collective/whitepapers/scriptura/' },
     { label: 'Nano Collective', href: 'https://nanocollective.org' },
   ],
-  marquee: [
-    'Vanilla JavaScript',
-    'TypeScript',
-    'C++',
-    'Rust',
-    'Qt 6',
-    'Chromium extensions',
-    'Manifest V3',
-    'Open source',
-  ],
   stats: [
     { value: '10', label: 'public repos' },
     { value: '5', label: 'tools built' },

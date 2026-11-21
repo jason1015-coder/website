@@ -21,14 +21,9 @@
   --radius-card: 24px;
   --radius-image: 24px;
 
-  --animate-marquee: marquee 34s linear infinite;
   --animate-drift-a: drift-a 24s ease-in-out infinite alternate;
   --animate-drift-b: drift-b 28s ease-in-out infinite alternate;
   --animate-blink: blink 1.2s steps(2, start) infinite;
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
   @keyframes drift-a {
     from { transform: translate3d(0, 0, 0) scale(1); }
     to { transform: translate3d(-10%, 12%, 0) scale(1.12); }
