@@ -1,10 +1,8 @@
 import { motion } from 'motion/react'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
-import { Link } from 'react-router'
 
 import { site } from '../../data/site'
 import { useGitHubStats } from '../lib/useGitHubStats'
-import { CitySection } from '../components/city/CitySection'
 import { Magnetic, Parallax } from '../components/motion'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -78,10 +76,13 @@ export function Home() {
             <p className="mt-4 text-pretty text-[16.5px] leading-relaxed text-muted sm:text-[17.5px]">{site.intro}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Magnetic>
-                <Link to="/#city" className="inline-flex h-12 items-center gap-2 rounded-[12px] bg-accent px-6 text-[14.5px] font-medium text-bg transition-colors hover:bg-[#7cb9ff]">
-                  Explore the city
+                <a
+                  href="https://jason1015-coder.github.io/project-metropolis/"
+                  className="inline-flex h-12 items-center gap-2 rounded-[12px] bg-accent px-6 text-[14.5px] font-medium text-bg transition-colors hover:bg-[#7cb9ff]"
+                >
+                  Explore Project Metropolis
                   <ArrowRight className="size-4" />
-                </Link>
+                </a>
               </Magnetic>
               <a href="https://github.com/jason1015-coder" className="link-draw inline-flex h-12 items-center gap-1.5 px-2 text-[14.5px] text-fg">
                 GitHub
@@ -110,9 +111,45 @@ export function Home() {
         </div>
       </section>
 
-      {/* The work, as a city rather than a grid of cards. */}
-      <CitySection />
+      {/* Redirect to Project Metropolis */}
+      <RedirectToMetropolis />
     </>
+  )
+}
+
+// Redirect to Project Metropolis
+function RedirectToMetropolis() {
+  return (
+    <section id="city" className="mx-auto max-w-[1400px] scroll-mt-20 px-5 pt-24 sm:px-8 sm:pt-32">
+      <div className="flex items-end justify-between gap-6">
+        <h2 className="font-display text-[44px] sm:text-[64px]">
+          Project Metropolis
+        </h2>
+        <p className="mono hidden pb-2 text-[11.5px] uppercase tracking-[0.14em] text-faint sm:block">
+          live from github.com/jason1015-coder
+        </p>
+      </div>
+
+      <div className="mt-6 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <p className="max-w-2xl text-pretty text-[16.5px] leading-relaxed text-muted">
+          The connected sand table with roads has moved to its own page. Visit the{' '}
+          <a
+            href="https://jason1015-coder.github.io/project-metropolis/"
+            className="link-draw text-accent"
+          >
+            Project Metropolis
+          </a>
+          {' '}for the live city visualization with auto-updating districts and lazy-loaded GitHub stats.
+        </p>
+        <a
+          href="https://jason1015-coder.github.io/project-metropolis/"
+          className="inline-flex h-12 items-center gap-2 rounded-[12px] bg-accent px-6 text-[14.5px] font-medium text-bg transition-colors hover:bg-[#7cb9ff] shrink-0"
+        >
+          Open the city
+          <ArrowRight className="size-4" />
+        </a>
+      </div>
+    </section>
   )
 }
 
