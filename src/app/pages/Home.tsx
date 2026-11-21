@@ -2,9 +2,9 @@ import { motion } from 'motion/react'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router'
 
-import { projects, site } from '../../data/site'
-import { Lines, Magnetic, Parallax, Reveal } from '../components/motion'
-import { WorkCard } from '../components/WorkCard'
+import { site } from '../../data/site'
+import { CitySection } from '../components/city/CitySection'
+import { Magnetic, Parallax } from '../components/motion'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -70,8 +70,8 @@ export function Home() {
             <p className="mt-4 text-pretty text-[16.5px] leading-relaxed text-muted sm:text-[17.5px]">{site.intro}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Magnetic>
-                <Link to="/#work" className="inline-flex h-12 items-center gap-2 rounded-[12px] bg-accent px-6 text-[14.5px] font-medium text-bg transition-colors hover:bg-[#7cb9ff]">
-                  Selected work
+                <Link to="/#city" className="inline-flex h-12 items-center gap-2 rounded-[12px] bg-accent px-6 text-[14.5px] font-medium text-bg transition-colors hover:bg-[#7cb9ff]">
+                  Explore the city
                   <ArrowRight className="size-4" />
                 </Link>
               </Magnetic>
@@ -110,20 +110,8 @@ export function Home() {
         </ul>
       </div>
 
-      {/* Work */}
-      <section id="work" className="mx-auto max-w-[1400px] scroll-mt-20 px-5 pt-24 sm:px-8 sm:pt-32">
-        <div className="flex items-end justify-between gap-6">
-          <Lines as="h2" className="font-display text-[44px] sm:text-[64px]" lines={['Selected work']} />
-          <Reveal className="mono hidden pb-2 text-[11.5px] uppercase tracking-[0.14em] text-faint sm:block">
-            {String(projects.length).padStart(2, '0')} projects / all open source
-          </Reveal>
-        </div>
-        <div className="mt-12 grid gap-x-6 gap-y-14 md:grid-cols-2 lg:gap-x-8 lg:gap-y-20">
-          {projects.map((p, i) => (
-            <WorkCard key={p.slug} project={p} index={i} />
-          ))}
-        </div>
-      </section>
+      {/* The work, as a city rather than a grid of cards. */}
+      <CitySection />
     </>
   )
 }

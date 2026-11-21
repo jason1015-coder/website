@@ -55,7 +55,7 @@ export function Nav() {
           <span className="mono hidden text-[10.5px] text-faint sm:inline">/{site.handle}</span>
         </Link>
         <nav className="flex items-center gap-5 sm:gap-7">
-          {link('/#work', 'Work', location.pathname.startsWith('/work'))}
+          {link('/#city', 'City', location.hash === '#city')}
           <a href="https://github.com/jason1015-coder" className="link-draw text-[13.5px] text-muted transition-colors hover:text-fg">
             GitHub
           </a>

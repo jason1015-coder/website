@@ -6,7 +6,6 @@ import { Footer } from './components/Footer'
 import { Nav } from './components/Nav'
 import { Preloader } from './components/Preloader'
 import { Home } from './pages/Home'
-import { Work } from './pages/Work'
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -36,7 +35,6 @@ function Pages() {
       >
         <Routes location={location}>
           <Route index element={<Home />} />
-          <Route path="work/:slug" element={<Work />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </motion.main>
