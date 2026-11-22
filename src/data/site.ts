@@ -10,7 +10,7 @@ export const site = {
   available: true,
   availability: 'Open to opportunities and interesting side projects',
   intro:
-    'A hobbyist developer in Coventry, making browser extensions and developer tools for problems I actually have. There is also Scriptura, a Qt and Rust code editor. I read the docs first, most of the time.',
+    'A hobbyist developer in Coventry, making browser extensions and developer tools for problems I actually have. I read the docs first, most of the time.',
   socials: [
     { label: 'GitHub', href: 'https://github.com/jason1015-coder' },
     { label: 'Scriptura docs', href: 'https://docs.nanocollective.org/collective/whitepapers/scriptura/' },
