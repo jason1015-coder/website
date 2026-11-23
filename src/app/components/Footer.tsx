@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 
-import { projects, site } from '../../data/site'
+import { site } from '../../data/site'
 import { Lines, Magnetic, Reveal } from './motion'
 import { useLocalTime } from './Nav'
 
@@ -10,8 +10,6 @@ export function Footer() {
   const elsewhere = [
     { label: 'GitHub profile', href: github },
     { label: 'All repositories', href: `${github}?tab=repositories` },
-    { label: projects[0].title, href: projects[0].link ?? github },
-    { label: 'Scriptura docs', href: 'https://docs.nanocollective.org/collective/whitepapers/scriptura/' },
   ]
 
   return (
